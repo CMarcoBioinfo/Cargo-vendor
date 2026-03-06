@@ -1,30 +1,16 @@
-[workspace]
-members = [
-    "bio",
-    "cli",
-    "sys",
-    "web",
-    "db",
-    "math",
-    "ml",
-    "gpu",
-    "ffi",
-    "formats",
-]
-
-##############################################
-# BIOINFO
-##############################################
 [package]
-name = "bio"
+name = "universal-vendor"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# BIOINFO
 bio = "1"
 noodles = { version = "0.74", features = ["bam", "vcf", "bgzf", "sam"] }
 rust-htslib = { version = "0.50", features = ["curl", "s3", "gcs"] }
 needletail = "0.6"
+
+# FORMATS / COMPRESSION
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 csv = "1"
@@ -32,15 +18,12 @@ flate2 = "1"
 zstd = "0.13"
 lz4 = "1"
 bzip2 = "0.4"
+tar = "0.4"
+zip = "0.6"
+parquet = "50"
+orc-format = "0.1"
 
-##############################################
 # CLI
-##############################################
-[[bin]]
-name = "cli"
-path = "cli.rs"
-
-[dependencies]
 clap = { version = "4.5", features = ["derive"] }
 rayon = "1.10"
 regex = "1"
@@ -53,14 +36,7 @@ indicatif = "0.17"
 walkdir = "2"
 glob = "0.3"
 
-##############################################
 # SYSTEME / ASYNC
-##############################################
-[[bin]]
-name = "sys"
-path = "sys.rs"
-
-[dependencies]
 tokio = { version = "1", features = ["full"] }
 async-std = "1"
 smol = "2"
@@ -72,93 +48,37 @@ url = "2.5"
 time = "0.3"
 notify = "6"
 
-##############################################
 # WEB / API
-##############################################
-[[bin]]
-name = "web"
-path = "web.rs"
-
-[dependencies]
 axum = "0.7"
 warp = "0.3"
 actix-web = "4"
 tower = "0.4"
 tower-http = "0.5"
-serde = { version = "1", features = ["derive"] }
 
-##############################################
 # BASES DE DONNÉES
-##############################################
-[[bin]]
-name = "db"
-path = "db.rs"
-
-[dependencies]
 sqlx = { version = "0.7", features = ["sqlite", "postgres", "mysql", "runtime-tokio"] }
 diesel = { version = "2", features = ["sqlite", "postgres"] }
 rusqlite = "0.31"
 mongodb = "3"
 
-##############################################
 # MATH
-##############################################
-[[bin]]
-name = "math"
-path = "math.rs"
-
-[dependencies]
 ndarray = "0.15"
 nalgebra = "0.32"
 statrs = "0.16"
 rand = "0.9"
 rand_chacha = "0.9"
 
-##############################################
 # MACHINE LEARNING
-##############################################
-[[bin]]
-name = "ml"
-path = "ml.rs"
-
-[dependencies]
 linfa = "0.7"
 burn = "0.14"
 tch = "0.14"
 
-##############################################
 # GPU
-##############################################
-[[bin]]
-name = "gpu"
-path = "gpu.rs"
-
-[dependencies]
 wgpu = "0.19"
 cust = "0.7"
 opencl3 = "0.7"
 
-##############################################
 # FFI
-##############################################
-[[bin]]
-name = "ffi"
-path = "ffi.rs"
-
-[dependencies]
 pyo3 = { version = "0.21", features = ["extension-module"] }
 cbindgen = "0.26"
 bindgen = "0.69"
-
-##############################################
-# FORMATS / COMPRESSION
-##############################################
-[[bin]]
-name = "formats"
-path = "formats.rs"
-
-[dependencies]
-tar = "0.4"
-zip = "0.6"
-parquet = "50"
-orc-format = "0.1"

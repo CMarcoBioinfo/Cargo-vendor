@@ -70,8 +70,8 @@ rand_chacha = "0.9"
 
 # MACHINE LEARNING
 linfa = "0.8.1"
-burn = "0.20"        # sans backend tch → OK
-tch = "0.23"         # le plus utilisé → OK
+burn = { version = "0.20", default-features = false }   # pas de backend → pas de torch-sys
+tch = "0.23"                                             # backend PyTorch le plus utilisé
 
 # GPU
 wgpu = "28.0.0"
@@ -82,5 +82,3 @@ opencl3 = "0.12"
 pyo3 = { version = "0.21", features = ["extension-module"] }
 cbindgen = "0.26"
 bindgen = "0.69"
-
-

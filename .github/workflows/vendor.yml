@@ -1,0 +1,37 @@
+name: Generate vendor
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Generate vendor
+        run: |
+          rm -rf vendor
+          cargo vendor --locked --versioned-dirs --manifest-path Cargo.toml
+
+      - name: Check vendor completeness
+        run: |
+          count=$(find vendor -name ".cargo-checksum.json" | wc -l)
+          if [ "$count" -lt 50 ]; then
+            echo "ERROR: Vendor incomplete: only $count checksum files found."
+            exit 1
+          fi
+          echo "Vendor OK: $count checksum files found."
+
+      - name: Create tar.gz archive
+        run: tar czf vendor.tar.gz vendor
+
+      - name: Upload vendor
+        uses: actions/upload-artifact@v4
+        with:
+          name: vendor
+          path: vendor.tar.gz

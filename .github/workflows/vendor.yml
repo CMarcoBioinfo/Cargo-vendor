@@ -13,6 +13,11 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
+      # Étape 1 : télécharger l’index + les crates (ONLINE)
+      - name: Fetch dependencies
+        run: cargo fetch
+
+      # Étape 2 : générer le vendor en offline
       - name: Generate vendor
         run: |
           rm -rf vendor

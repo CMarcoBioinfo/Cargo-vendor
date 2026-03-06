@@ -70,8 +70,8 @@ rand_chacha = "0.9"
 
 # MACHINE LEARNING
 linfa = "0.8.1"
-burn = "0.20"
-tch = "0.23"
+burn = "0.20"        # sans backend tch → OK
+tch = "0.23"         # le plus utilisé → OK
 
 # GPU
 wgpu = "28.0.0"

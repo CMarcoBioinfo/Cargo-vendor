@@ -16,7 +16,7 @@ jobs:
       - name: Generate vendor
         run: |
           rm -rf vendor
-          cargo vendor --locked --versioned-dirs --manifest-path Cargo.toml
+          cargo vendor --offline --versioned-dirs --manifest-path Cargo.toml
 
       - name: Check vendor completeness
         run: |

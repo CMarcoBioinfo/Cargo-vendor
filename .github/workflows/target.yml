@@ -1,36 +1,36 @@
-name: Build multi-target
+name: Export Rust Targets
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  export-targets:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Rust
+    - name: Install Rust stable
       uses: dtolnay/rust-toolchain@stable
 
     - name: Add Windows target
       run: rustup target add x86_64-pc-windows-gnu
 
-    - name: Install mingw
-      run: sudo apt-get install -y mingw-w64
+    - name: Add macOS targets
+      run: |
+        rustup target add x86_64-apple-darwin
+        rustup target add aarch64-apple-darwin
 
-    - name: Build Windows binary
-      run: cargo build --release --target x86_64-pc-windows-gnu
-
-    - name: Upload Windows binary
+    - name: Upload Windows target
       uses: actions/upload-artifact@v4
       with:
-        name: windows-binary
-        path: target/x86_64-pc-windows-gnu/release/*
-
-    - name: Upload Windows target libs
-      uses: actions/upload-artifact@v4
-      with:
-        name: windows-target
+        name: target-windows
         path: ~/.rustup/toolchains/*/lib/rustlib/x86_64-pc-windows-gnu
+
+    - name: Upload macOS targets
+      uses: actions/upload-artifact@v4
+      with:
+        name: target-macos
+        path: |
+          ~/.rustup/toolchains/*/lib/rustlib/x86_64-apple-darwin
+          ~/.rustup/toolchains/*/lib/rustlib/aarch64-apple-darwin

@@ -8,7 +8,7 @@ edition = "2021"
 bio = "1"
 noodles = { version = "0.102", features = ["bam", "vcf", "bgzf", "sam"] }
 rust-htslib = { version = "0.47", features = ["curl", "s3", "gcs"] }
-needletail = "0.6"
+# needletail retiré → conflit lzma résolu
 
 # FORMATS / COMPRESSION
 serde = { version = "1", features = ["derive"] }
@@ -58,7 +58,7 @@ tower-http = "0.5"
 # BASES DE DONNÉES
 sqlx = { version = "0.7", features = ["postgres", "mysql", "runtime-tokio"] }
 diesel = { version = "2", features = ["sqlite", "postgres"] }
-# rusqlite retiré → évite le conflit sqlite
+# rusqlite retiré → conflit sqlite résolu
 
 # MATH
 ndarray = "0.15"

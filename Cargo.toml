@@ -1,83 +1,96 @@
+# [package]
+# name = "universal-vendor"
+# version = "0.1.0"
+# edition = "2021"
+
+# [dependencies]
+# # BIOINFO
+# bio = "1"
+# noodles = { version = "0.102", features = ["bam", "vcf", "bgzf", "sam"] }
+# rust-htslib = { version = "0.47", features = ["curl", "s3", "gcs"] }
+# # needletail retiré → conflit lzma résolu
+
+# # FORMATS / COMPRESSION
+# serde = { version = "1", features = ["derive"] }
+# serde_json = "1"
+# csv = "1"
+# flate2 = "1"
+# zstd = "0.13"
+# lz4 = "1"
+# bzip2 = "0.4"
+# tar = "0.4"
+# zip = "0.6"
+# parquet = "50"
+# orc-format = "0.1"
+
+# # CLI
+# clap = { version = "4.5", features = ["derive"] }
+# rayon = "1.10"
+# regex = "1"
+# log = "0.4"
+# env_logger = "0.11"
+# anyhow = "1"
+# thiserror = "1"
+# itertools = "0.14"
+# indicatif = "0.17"
+# walkdir = "2"
+# glob = "0.3"
+
+# # SYSTEME / ASYNC
+# tokio = { version = "1", features = ["full"] }
+# async-std = "1"
+# smol = "2"
+# reqwest = { version = "0.12", features = ["json", "gzip"] }
+# hyper = "1"
+# crossbeam = "0.8"
+# parking_lot = "0.12"
+# url = "2.5"
+# time = "0.3"
+# notify = "6"
+
+# # WEB / API
+# axum = "0.7"
+# warp = "0.3"
+# actix-web = "4"
+# tower = "0.4"
+# tower-http = "0.5"
+
+# # BASES DE DONNÉES
+# sqlx = { version = "0.7", features = ["postgres", "mysql", "runtime-tokio"] }
+# diesel = { version = "2", features = ["sqlite", "postgres"] }
+# # rusqlite retiré → conflit sqlite résolu
+
+# # MATH
+# ndarray = "0.15"
+# nalgebra = "0.32"
+# statrs = "0.16"
+# rand = "0.9"
+# rand_chacha = "0.9"
+
+# # MACHINE LEARNING
+# linfa = "0.8.1"
+# burn = { version = "0.20", default-features = false }
+# tch = "0.23"
+
+# # GPU
+# wgpu = "28.0.0"
+# cust = "0.3.2"
+# opencl3 = "0.12"
+
+# # FFI
+# pyo3 = { version = "0.21", features = ["extension-module"] }
+# cbindgen = "0.26"
+# bindgen = "0.69"
+
+
 [package]
-name = "universal-vendor"
+name = "rustlings-vendor"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# BIOINFO
-bio = "1"
-noodles = { version = "0.102", features = ["bam", "vcf", "bgzf", "sam"] }
-rust-htslib = { version = "0.47", features = ["curl", "s3", "gcs"] }
-# needletail retiré → conflit lzma résolu
-
-# FORMATS / COMPRESSION
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-csv = "1"
-flate2 = "1"
-zstd = "0.13"
-lz4 = "1"
-bzip2 = "0.4"
-tar = "0.4"
-zip = "0.6"
-parquet = "50"
-orc-format = "0.1"
-
-# CLI
-clap = { version = "4.5", features = ["derive"] }
-rayon = "1.10"
-regex = "1"
-log = "0.4"
-env_logger = "0.11"
-anyhow = "1"
-thiserror = "1"
-itertools = "0.14"
-indicatif = "0.17"
-walkdir = "2"
-glob = "0.3"
-
-# SYSTEME / ASYNC
-tokio = { version = "1", features = ["full"] }
-async-std = "1"
-smol = "2"
-reqwest = { version = "0.12", features = ["json", "gzip"] }
-hyper = "1"
-crossbeam = "0.8"
-parking_lot = "0.12"
-url = "2.5"
-time = "0.3"
-notify = "6"
-
-# WEB / API
-axum = "0.7"
-warp = "0.3"
-actix-web = "4"
-tower = "0.4"
-tower-http = "0.5"
-
-# BASES DE DONNÉES
-sqlx = { version = "0.7", features = ["postgres", "mysql", "runtime-tokio"] }
-diesel = { version = "2", features = ["sqlite", "postgres"] }
-# rusqlite retiré → conflit sqlite résolu
-
-# MATH
-ndarray = "0.15"
-nalgebra = "0.32"
-statrs = "0.16"
-rand = "0.9"
-rand_chacha = "0.9"
-
-# MACHINE LEARNING
-linfa = "0.8.1"
-burn = { version = "0.20", default-features = false }
-tch = "0.23"
-
-# GPU
-wgpu = "28.0.0"
-cust = "0.3.2"
-opencl3 = "0.12"
-
-# FFI
-pyo3 = { version = "0.21", features = ["extension-module"] }
-cbindgen = "0.26"
-bindgen = "0.69"
+crossterm = "0.27"
+console = "0.15"
+rustyline = "12"
+serde_yaml = "0.9"
+globset = "0.4"

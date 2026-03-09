@@ -90,8 +90,9 @@ edition = "2021"
 
 [dependencies]
 # Dépendances nécessaires pour rustlings
-crossterm = "0.29"
-console = "0.15"
-rustyline = "12"
-serde_yaml = "0.9"
-globset = "0.4"
+# crossterm = "0.29"
+# console = "0.15"
+# rustyline = "12"
+# serde_yaml = "0.9"
+# globset = "0.4"
+notify = "8"

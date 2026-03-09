@@ -89,7 +89,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-crossterm = "0.27"
+# Dépendances nécessaires pour rustlings
+crossterm = "0.29"
 console = "0.15"
 rustyline = "12"
 serde_yaml = "0.9"
